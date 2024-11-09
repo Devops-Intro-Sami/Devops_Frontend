@@ -13,7 +13,7 @@ const FlightList = () => {
     try {
       // Use the environment variable for the backend URL
       const response = await axios.get(
-        `$http://localhost:3001/api/flights/search`,
+        `http://localhost:3001/api/flights/search`,
         { params: searchParams }
       );
       setFlights(response.data);
