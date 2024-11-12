@@ -54,6 +54,7 @@ const FlightList = () => {
         {/* Search Form */}
         <div className="space-y-4">
           <input
+            data-cy={`departure_search_textfield`}
             type="text"
             placeholder="Departure"
             onChange={(e) =>
@@ -65,6 +66,7 @@ const FlightList = () => {
             className="w-full p-2 border rounded"
           />
           <input
+            data-cy={`destination_search_textfield`}
             type="text"
             placeholder="Destination"
             onChange={(e) =>
@@ -76,6 +78,7 @@ const FlightList = () => {
             className="w-full p-2 border rounded"
           />
           <button
+            data-cy={`search_flights_button`}
             onClick={searchFlights}
             className="w-full py-2 bg-blue-500 text-white rounded"
           >
@@ -92,6 +95,7 @@ const FlightList = () => {
           ) : (
             flights.map((flight) => (
               <li
+                data-cy="flight_component"
                 key={flight.id}
                 className="p-4 border rounded shadow-sm bg-white"
               >
@@ -111,7 +115,10 @@ const FlightList = () => {
                   {format(new Date(flight.arrivalTime), "MMM dd, yyyy hh:mm a")}
                 </div>
 
-                <div className="text-lg font-bold text-blue-600">
+                <div
+                  cost={flight.cost}
+                  className="text-lg font-bold text-blue-600"
+                >
                   ${flight.cost}
                 </div>
 
