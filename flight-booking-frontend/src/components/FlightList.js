@@ -49,7 +49,12 @@ const FlightList = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="p-6 bg-white rounded shadow-lg w-[90%] max-w-4xl">
-        <h1 className="text-3xl font-bold text-center mb-6">Flight Booking</h1>
+        <h1
+          data-cy="flight_site_header"
+          className="text-3xl font-bold text-center mb-6"
+        >
+          Flight Booking
+        </h1>
 
         {/* Search Form */}
         <div className="space-y-4">

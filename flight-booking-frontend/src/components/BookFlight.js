@@ -5,7 +5,7 @@ const BookFlight = ({ flight }) => {
   const [seatsToBook, setSeatsToBook] = useState(1);
   const [availableSeats, setAvailableSeats] = useState(flight.availableSeats);
   const [error, setError] = useState("");
-  const [resData, setResData] = useState();
+  const [resData, setResData] = useState("");
 
   const handleBooking = async () => {
     console.log(":::::", seatsToBook);
@@ -30,6 +30,7 @@ const BookFlight = ({ flight }) => {
 
       // Update available seats based on the response
       setAvailableSeats(response.data.availableSeats);
+      console.log("::::::::", response.data.message);
       setResData(response.data.message);
       document.getElementById("alert-success").showModal();
       setError(""); // Clear error message
@@ -63,7 +64,11 @@ const BookFlight = ({ flight }) => {
         Book Now
       </button>
 
-      {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
+      {error && (
+        <p data-cy="error_message" className="mt-2 text-sm text-red-500">
+          {error}
+        </p>
+      )}
 
       <p
         seats={availableSeats}
