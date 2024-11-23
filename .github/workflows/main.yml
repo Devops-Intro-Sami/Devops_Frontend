@@ -44,7 +44,11 @@ jobs:
           npm install
 
       - name: start dev
-        run: npm start
+        run: |
+          cd flight-booking-frontend
+          npm start
 
       - name: Run tests
-        run: npm cypress run
+        run: |
+          cd flight-booking-frontend
+          npm cypress run
