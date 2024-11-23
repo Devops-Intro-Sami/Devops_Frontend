@@ -46,7 +46,7 @@ jobs:
       - name: start dev
         run: |
           cd flight-booking-frontend
-          npm start
+          nohup npm start &
 
       - name: Run tests
         run: |
