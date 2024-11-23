@@ -51,4 +51,4 @@ jobs:
       - name: Run tests
         run: |
           cd flight-booking-frontend
-          npm cypress run
+          npx cypress run
