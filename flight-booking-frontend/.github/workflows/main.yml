@@ -2,50 +2,43 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - staging
-      - feature/add-cicd
+    branches: ["staging","feature/add-cicd"]
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the current repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Clone the Backend Repository
       - name: Clone Backend Repository
-        run: |
-          git clone https://github.com/Devops-Intro-Sami/Devops_Backend.git backend
+        uses: actions/checkout@v3
+        with:
+          repository: Devops-Intro-Sami/Devops_Backend
+          path: backend
 
-      # Build and Start Docker Compose Services
       - name: Build and Start Docker Compose Services
         run: |
-          docker-compose -f backend/docker-compose_test.yml up --build -d
+        docker-compose -f backend/docker-compose_test.yml up --build -d
 
-      # Wait for App to be Ready
       - name: Wait for App to be Ready
         run: |
           for i in {1..10}; do
-            curl -s http://localhost:3001/ && break || sleep 5;
+            curl -s http://localhost:3001/ && break || sleep 5
           done
 
-      # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "16"
 
-      # Install Frontend Dependencies
       - name: Install dependencies
         run: npm install
 
-      # Start the Frontend Application
-      - name: Start Frontend App
-        run: npm start &
+      - name: start dev
+        run: npm start
 
-      # Run Cypress Tests
-      - name: Run Cypress Tests
+      - name: Run tests
         run: npm cypress run
