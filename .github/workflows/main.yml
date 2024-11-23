@@ -18,6 +18,10 @@ jobs:
           repository: Devops-Intro-Sami/Devops_Backend
           path: backend
 
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update && sudo apt-get install -y docker-compose
+
       - name: Build and Start Docker Compose Services
         run: |
           docker-compose -f backend/docker-compose_test.yml up --build -d
