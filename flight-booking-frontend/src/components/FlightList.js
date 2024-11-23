@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import { format } from "date-fns"; // Import the format function from date-fns
 import BookFlight from "./BookFlight"; // Import the BookFlight component
 
@@ -49,11 +50,17 @@ const FlightList = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="p-6 bg-white rounded shadow-lg w-[90%] max-w-4xl">
-        <h1 className="text-3xl font-bold text-center mb-6">Flight Booking</h1>
+        <h1
+          data-cy="flight_site_header"
+          className="text-3xl font-bold text-center mb-6"
+        >
+          Flight Booking
+        </h1>
 
         {/* Search Form */}
         <div className="space-y-4">
           <input
+            data-cy={`departure_search_textfield`}
             type="text"
             placeholder="Departure"
             onChange={(e) =>
@@ -65,6 +72,7 @@ const FlightList = () => {
             className="w-full p-2 border rounded"
           />
           <input
+            data-cy={`destination_search_textfield`}
             type="text"
             placeholder="Destination"
             onChange={(e) =>
@@ -76,6 +84,7 @@ const FlightList = () => {
             className="w-full p-2 border rounded"
           />
           <button
+            data-cy={`search_flights_button`}
             onClick={searchFlights}
             className="w-full py-2 bg-blue-500 text-white rounded"
           >
@@ -92,11 +101,15 @@ const FlightList = () => {
           ) : (
             flights.map((flight) => (
               <li
+                data-cy="flight_component"
                 key={flight.id}
                 className="p-4 border rounded shadow-sm bg-white"
               >
                 <div className="font-semibold">{flight.flightNumber}</div>
-                <div className="text-sm text-gray-600">
+                <div
+                  data-cy={`depart_dest_text_flight_${flight.id}`}
+                  className="text-sm text-gray-600"
+                >
                   {flight.departureLocation} ➡️ {flight.destinationLocation}
                 </div>
 
@@ -111,7 +124,10 @@ const FlightList = () => {
                   {format(new Date(flight.arrivalTime), "MMM dd, yyyy hh:mm a")}
                 </div>
 
-                <div className="text-lg font-bold text-blue-600">
+                <div
+                  cost={flight.cost}
+                  className="text-lg font-bold text-blue-600"
+                >
                   ${flight.cost}
                 </div>
 
