@@ -1,4 +1,4 @@
-describe("test booking one flight success and fail when no seats", () => {
+describe("test if accepting invalid input and behavore", () => {
   it("test invalid input signs and letters", () => {
     const flightNum = 3;
     cy.visit("/");

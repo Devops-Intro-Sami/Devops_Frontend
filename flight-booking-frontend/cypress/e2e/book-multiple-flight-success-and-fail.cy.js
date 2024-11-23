@@ -1,5 +1,5 @@
 describe("test booking one flight success and fail when no seats", () => {
-  it("test success booking 1 flight", () => {
+  it("test success booking multiple flight", () => {
     const flightNum = 5;
     const bookNum = 3;
     cy.visit("/");
@@ -29,7 +29,7 @@ describe("test booking one flight success and fail when no seats", () => {
       });
   });
 
-  it("test fail booking 1 flight", () => {
+  it("test fail booking multiple flight", () => {
     const flightNum = 7;
     const bookNum = 3;
     cy.visit("/");
