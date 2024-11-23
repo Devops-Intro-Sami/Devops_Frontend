@@ -1,10 +1,8 @@
-
 name: Node.js CI
 
 on:
   push:
-    branches: ["staging","feature/add-cicd"]
-
+    branches: ["staging", "feature/add-cicd"]
 
 jobs:
   build:
@@ -22,7 +20,7 @@ jobs:
 
       - name: Build and Start Docker Compose Services
         run: |
-        docker-compose -f backend/docker-compose_test.yml up --build -d
+          docker-compose -f backend/docker-compose_test.yml up --build -d
 
       - name: Wait for App to be Ready
         run: |
