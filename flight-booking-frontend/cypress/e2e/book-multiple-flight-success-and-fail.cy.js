@@ -15,11 +15,15 @@ describe("test booking one flight success and fail when no seats", () => {
           .should("be.visible")
           .click();
 
-        cy.get(`[data-cy='sucsess_dialog_popup']`).should("be.visible");
-        cy.get(`[data-cy='x_close_dialog_button']`)
+        cy.get(`[data-cy='sucsess_dialog_popup_flight_${flightNum}']`).should(
+          "be.visible"
+        );
+        cy.get(`[data-cy='x_close_dialog_button_flight_${flightNum}']`)
           .should("be.visible")
           .click();
-        cy.get(`[data-cy='sucsess_dialog_popup']`).should("not.be.visible");
+        cy.get(`[data-cy='sucsess_dialog_popup_flight_${flightNum}']`).should(
+          "not.be.visible"
+        );
 
         cy.get(`[data-cy='available_seats_number_flight_${flightNum}']`).should(
           "have.attr",
@@ -30,7 +34,7 @@ describe("test booking one flight success and fail when no seats", () => {
   });
 
   it("test fail booking multiple flight", () => {
-    const flightNum = 7;
+    const flightNum = 8;
     const bookNum = 3;
     cy.visit("/");
     cy.get(`[data-cy='available_seats_number_flight_${flightNum}']`).should(

@@ -5,7 +5,7 @@ module.exports = defineConfig({
     baseUrl: "http://localhost:3000",
     screenshotOnRunFailure: false,
     video: false,
-    retries: 1,
+    retries: 0,
     defaultCommandTimeout: 15_000,
     waitForAnimations: true,
     responseTimeout: 120_000,

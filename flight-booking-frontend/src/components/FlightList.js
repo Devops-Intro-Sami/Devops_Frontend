@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import { format } from "date-fns"; // Import the format function from date-fns
 import BookFlight from "./BookFlight"; // Import the BookFlight component
 
@@ -105,7 +106,10 @@ const FlightList = () => {
                 className="p-4 border rounded shadow-sm bg-white"
               >
                 <div className="font-semibold">{flight.flightNumber}</div>
-                <div className="text-sm text-gray-600">
+                <div
+                  data-cy={`depart_dest_text_flight_${flight.id}`}
+                  className="text-sm text-gray-600"
+                >
                   {flight.departureLocation} ➡️ {flight.destinationLocation}
                 </div>
 

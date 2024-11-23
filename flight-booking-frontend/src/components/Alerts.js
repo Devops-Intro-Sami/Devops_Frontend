@@ -16,24 +16,24 @@ const CloseIcon = ({ className = "" }) => (
   </svg>
 );
 
-const AlertDialog = ({ text, type }) => {
+const AlertDialog = ({ text, type, flightId }) => {
   const alertColor = type === "success" ? "bg-green-400" : "bg-red-400";
 
   const handleClose = () => {
-    const dialog = document.getElementById(`alert-${type}`);
+    const dialog = document.getElementById(`alert-${type}-${flightId}`);
     dialog.close();
   };
   return (
-    <dialog id={`alert-${type}`} className="modal">
+    <dialog id={`alert-${type}-${flightId}`} className="modal">
       <div
-        data-cy="sucsess_dialog_popup"
+        data-cy={`sucsess_dialog_popup_flight_${flightId}`}
         role="alert"
         className={`relative ${alertColor} rounded-lg shadow-lg p-6 w-80 max-w-xs`}
       >
         <button
           onClick={handleClose}
           className="absolute top-2 right-2 p-2 rounded-full bg-gray-800 text-white"
-          data-cy="x_close_dialog_button"
+          data-cy={`x_close_dialog_button_flight_${flightId}`}
         >
           <CloseIcon className=" w-6 h-6 shrink-0 stroke-current" />
         </button>

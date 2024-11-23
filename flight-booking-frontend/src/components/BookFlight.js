@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import AlertDialog from "./Alerts";
+import "react-toastify/dist/ReactToastify.css";
+
 const BookFlight = ({ flight }) => {
   const [seatsToBook, setSeatsToBook] = useState(1);
   const [availableSeats, setAvailableSeats] = useState(flight.availableSeats);
   const [error, setError] = useState("");
-  const [resData, setResData] = useState("");
 
   const handleBooking = async () => {
     console.log(":::::", seatsToBook);
@@ -31,8 +32,7 @@ const BookFlight = ({ flight }) => {
       // Update available seats based on the response
       setAvailableSeats(response.data.availableSeats);
       console.log("::::::::", response.data.message);
-      setResData(response.data.message);
-      document.getElementById("alert-success").showModal();
+      document.getElementById(`alert-success-${flight.id}`).showModal();
       setError(""); // Clear error message
     } catch (error) {
       console.error("Error booking flight:", error);
@@ -77,7 +77,12 @@ const BookFlight = ({ flight }) => {
       >
         Available Seats: {availableSeats}
       </p>
-      <AlertDialog text={resData} type={"success"} />
+
+      <AlertDialog
+        text={"Success booking flights"}
+        type={"success"}
+        flightId={flight.id}
+      />
     </div>
   );
 };
