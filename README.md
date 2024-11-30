@@ -20,7 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npx cypress run`
 
-Runs the tests through the cypress framework.\
+Runs the tests through the cypress framework.
 
 ## Frontend structure
 
@@ -34,7 +34,7 @@ Runs the tests through the cypress framework.\
 ### BookFlight Component
 - **Description:** Handles the flight booking process.
 - **Features:**
-  - Accepts user input for booking details (e.g., passenger name, seat selection).
+  - Accepts user input for booking details (e.g. seat selection).
   - Sends a booking request to the backend.
   - Displays confirmation or error messages based on the backend response.
 
