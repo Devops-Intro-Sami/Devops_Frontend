@@ -1,7 +1,7 @@
 # Devops_Frontend
 The frontend handles the user interface and interacts with the backend to fetch flight data and perform bookings.
 
-##Prerequirement
+## Prerequirement
 Make sure backend is running [https://github.com/Devops-Intro-Sami/Devops_Backend](https://github.com/Devops-Intro-Sami/Devops_Backend) to be able to fetch data and perform database actions.
 ## To Run The project
 1. Clone the repository
