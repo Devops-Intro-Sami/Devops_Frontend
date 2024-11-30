@@ -3,8 +3,9 @@ The frontend handles the user interface and interacts with the backend to fetch 
 
 ## To Run The project
 1. Clone the repository
-2. Run `npm install` to install all dependencies
-3. Use available scripts.
+2. run `cd flight-booking-frontend` to enter React project folder.
+3. Run `npm install` to install all dependencies
+4. Use available scripts.
 
 ## Available Scripts
 
