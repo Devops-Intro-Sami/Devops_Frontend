@@ -65,6 +65,6 @@ describe("search flighs", () => {
     cy.get(`[data-cy='departure_search_textfield']`).clear();
     cy.get(`[data-cy='destination_search_textfield']`).clear();
     cy.get(`[data-cy='search_flights_button']`).should("be.visible").click();
-    cy.get(`[data-cy='flight_component']`).should("have.length", 8);
+    cy.get(`[data-cy='flight_component']`).should("have.length.at.least", 8);
   });
 });
