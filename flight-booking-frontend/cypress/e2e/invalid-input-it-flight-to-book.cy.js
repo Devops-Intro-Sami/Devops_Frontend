@@ -1,6 +1,6 @@
 describe("test if accepting invalid input and behavore", () => {
   it("test invalid input signs and letters", () => {
-    const flightNum = 3;
+    const flightNum = 10;
     cy.visit("/");
     cy.get(`[data-cy='flight_site_header']`).should("be.visible");
 
